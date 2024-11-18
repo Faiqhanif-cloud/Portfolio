@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        /* Use Open Sans font family */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color:  #f8f9fa; /* Change this to the primary background color you like */
+            color: #495057; /* Dark gray text */
+            scroll-behavior: smooth;
+        }
+
+        /* Color Palette */
+        :root {
+            --color-1: #f8f9fa; /* Light Gray */
+            --color-2: #e9ecef; /* Lighter Gray */
+            --color-3: #dee2e6; /* Light Blue-Gray */
+            --color-4: #ced4da; /* Grayish Blue */
+            --color-5: #adb5bd; /* Gray */
+            --color-6: #6c757d; /* Dark Gray */
+            --color-7: #495057; /* Charcoal Gray */
+            --color-8: #343a40; /* Dark Charcoal */
+            --color-9: #212529; /* Almost Black */
+            --accent-color: #007BFF;
+            --navbar-bg-color: #343a40; /* Dark Charcoal Navbar */
+            --navbar-link-color: #ffffff;
+            --navbar-active-color: #FFD700;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--navbar-bg-color) !important;
+            box-shadow: none;
+        }
+
+        .navbar-brand {
+            color: var(--navbar-link-color) !important;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .navbar-brand:hover {
+            color: var(--navbar-link-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--navbar-link-color) !important;
+            font-size: 1.1rem;
+            padding: 12px 15px;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--navbar-link-color) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--navbar-link-color) !important;
+            font-weight: normal;
+            text-decoration: none;
+        }
+
+       /* Hero Section */
+.hero {
+    background-color: #e9ecef; /* Lighter Gray Background */
+    font-size: 18px;
+    color: #6c757d;
+    line-height: 1.6;
+    padding: 70px 20px;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6); /* White overlay */
+    z-index: -1;
+}
+
+/* Style the Heading */
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700; /* Bold */
+    color: #000000; /* Black Text */
+    padding: 15px 25px; /* Add some padding for spacing around the text */
+    display: inline-block; /* Keeps padding only around the text */
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Adds space below the heading */
+    letter-spacing: 1px; /* Adds some space between the letters for a clean look */
+}
+
+/* Style the Paragraph */
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #000000; /* Black Paragraph Text */
+    max-width: 800px; /* Limiting width for better readability */
+    margin: 0 auto; /* Center the paragraph */
+    line-height: 1.6;
+    text-align: center;
+}
+
+       /* Contact Section */
+.contact-section {
+    background-image: url('path/to/your/background-image.jpg'); /* Add your image path here */
+    background-size: cover;
+    background-position: center;
+    color: black; /* Keep the text color black */
+    padding: 60px 0;
+}
+
+.contact-section .section-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007BFF; /* Blue color for heading */
+    margin-bottom: 20px;
+}
+
+.contact-section .form-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007BFF; /* Blue color for form heading */
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: black; /* Ensure the text color stays black */
+}
+
+.contact-section .form-group label {
+    color: black; /* Ensure label text stays black */
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.contact-section .form-group input, .contact-section .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.contact-section .form-group textarea {
+    resize: vertical;
+}
+
+.contact-section .btn-primary {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-section .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.contact-section .text-center {
+    text-align: center;
+}
+
+/* For responsiveness */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 40px 20px;
+    }
+
+    .contact-section .section-heading {
+        font-size: 2rem;
+    }
+
+    .contact-section .form-heading {
+        font-size: 1.5rem;
+    }
+}
+
+
+       /* Service Section Style */
+#services {
+    padding: 60px 0;
+}
+
+.service-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-box i {
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+.service-box h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+      
+#services .section-title {
+    color: #007BFF;  /* Change the title color to blue */
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+       /* Testimonial Section Styles */
+#testimonials {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    text-align: center;
+}
+
+#testimonials h1 {
+    font-size: 32px; /* Heading size */
+    color: #007BFF; /* Blue color */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#testimonials .section-intro {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center; /* Center-align content for better readability */
+    flex: 1 1 calc(33.33% - 20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for border effect */
+    overflow: hidden; /* Prevent overflow of box-shadow */
+}
+
+/* Border Light Animation on Hover */
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: borderGlow 1.5s ease-in-out infinite; /* Apply the animation on hover */
+}
+
+/* Keyframes for border glow effect */
+@keyframes borderGlow {
+    0% {
+        border: 2px solid rgba(0, 123, 255, 0.7);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.7);
+    }
+    50% {
+        border: 2px solid rgba(0, 123, 255, 0.3);
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.3), 0 0 30px rgba(0, 123, 255, 0.3);
+    }
+    100% {
+        border: 2px solid rgba(0, 123, 255, 0.7);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.7);
+    }
+}
+
+.testimonial h4 {
+    font-size: 20px;
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.testimonial img.testimonial-image {
+    width: 100px; /* Consistent size for images */
+    height: 100px;
+    border-radius: 50%; /* Circular images */
+    object-fit: cover; /* Maintain aspect ratio */
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonials-wrapper {
+        flex-direction: column;
+    }
+
+    .testimonial {
+        flex: 1 1 100%;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .testimonial img.testimonial-image {
+        width: 80px; /* Smaller size for small devices */
+        height: 80px;
+    }
+}
+
+/* Portfolio Section Style */
+#portfolio {
+    padding: 60px 0;
+}
+
+/* Style for "My Work" Heading */
+.section-title {
+    font-size: 36px; /* Adjust size if needed */
+    font-weight: bold; /* Bold text */
+    color: #007BFF; /* Blue color */
+    margin-bottom: 20px; /* Add spacing below */
+}
+
+
+.project-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    color: #007BFF;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.project-card p {
+    color: #6c757d;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.project-card h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.project-card ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+
+
+       /* Process Section */
+#process {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.process-section .section-title {
+    margin-bottom: 50px;
+}
+
+.process-section .section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+.process-section .section-title p {
+    font-size: 18px;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+.process-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.process-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.process-box h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007BFF; /* Blue color */
+    margin-bottom: 20px;
+}
+
+
+.process-box p {
+    font-size: 16px;
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .process-box {
+        margin-bottom: 20px;
+    }
+}
+
+
+:root {
+    --color-4: #b0c4de; /* Grayish Blue (change to your desired color) */
+    --color-9: #ffffff; /* Text color */
+    --accent-color: #007BFF; /* Accent color (blue) */
+}
+
+/* About Me Section Style */
+#about .section-title {
+    color: #007BFF;  /* Change the title color to blue */
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+footer {
+    background-color:#e6ccb2 ; /* Grayish Blue */
+    color: var(--color-9); /* Text Color */
+    padding: 15px 0; /* Smaller padding for a compact footer */
+    font-size: 14px; /* Smaller font size */
+}
+
+footer h4 {
+    color: #007BFF; /* Blue color for section headings (like Testimonials) */
+    font-weight: bold; /* Bold Headings */
+    margin-bottom: 10px; /* Reduced margin for headings */
+    text-transform: uppercase; /* Uppercase for better heading clarity */
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Smaller gap between the two sections */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
+}
+
+footer .left-side, footer .right-side {
+    flex: 1; /* Both sides take up equal space */
+}
+
+/* Adjust the "Quick Links" section to align left */
+footer .left-side {
+    text-align: left; /* Left align the links */
+}
+
+/* Centering the "Contact & Follow Me" section */
+footer .right-side {
+    text-align: left; /* Left align the content */
+}
+
+/* List styling for links */
+footer ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px; /* Reduced space between list items */
+}
+
+/* Links styling with icons */
+footer a {
+    color: var(--color-9); /* Link color */
+    text-decoration: none;
+    font-size: 14px; /* Smaller font size for compact view */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Smaller gap between icon and text */
+}
+
+footer a:hover {
+    color: var(--accent-color); /* Accent color on hover */
+}
+
+footer a i {
+    font-size: 16px; /* Smaller icon size */
+    color: #000; /* Black color for icons */
+}
+
+/* Quick Links color */
+footer .left-side h4 {
+    color: #007BFF; /* Matching color with Testimonials section heading */
+}
+
+/* Footer Social Icons */
+footer .social-icons a {
+    margin: 0 10px;
+    font-size: 1.2rem; /* Smaller icon size */
+    transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+    color: var(--accent-color); /* Accent color on hover */
+}
+
+footer .copyright p {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--color-9); /* Text color */
+}
+
+/* Icons for Footer Links */
+footer i {
+    font-size: 16px; /* Adjust icon size */
+    color: #000; /* Black color for icons */
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .left-side,
+    footer .right-side {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    footer h4 {
+        font-size: 16px; /* Smaller heading size on mobile */
+    }
+
+    footer a {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    footer i {
+        font-size: 20px; /* Larger icon size on mobile */
+    }
+}
+
+
+
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--color-9);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .back-to-top i {
+            font-size: 1.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Faiq Hanif</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#process">Process</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column: Text -->
+            <div class="col-md-6">
+                <h1>Welcome to My Portfolio</h1>
+                <p>
+                    Hi, I’m Faiq Hanif, a full-stack web developer specializing in both front-end and back-end development. I create modern, responsive websites that not only look great but also deliver seamless user experiences. Whether it’s a dynamic website or a custom web application, I can bring your ideas to life with clean code and professional design.
+                </p>
+            </div>
+            <!-- Right Column: Image -->
+            <div class="col-md-6">
+                <img src="images/Hero.jpg" alt="Portfolio Image" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- About Section -->
+<div id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row align-items-center">
+            <!-- Left Column: Image -->
+            <div class="col-md-6">
+                <img src="images/aboutme.jpg" alt="Faiq Hanif" class="img-fluid rounded">
+            </div>
+            <!-- Right Column: Text -->
+            <div class="col-md-6">
+                <p>
+                    As a passionate web developer, I combine creativity with technical expertise to build websites that meet the needs of my clients. With a background in Python and hands-on experience in HTML, CSS, JavaScript, and various back-end technologies, I have a comprehensive understanding of both front-end and back-end development. I approach each project with the goal of creating scalable, user-friendly solutions that provide real value to users and businesses alike.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Services Section -->
+<div id="services" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">What I Do</h2>
+        <p class="text-center">I offer a wide range of full-stack web development services, from crafting beautiful, interactive front-end interfaces to developing robust, efficient back-end solutions. Here's a list of services I provide:</p>
+        <div class="row">
+            <!-- Front-End Development -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="service-box">
+                    <i class="fa fa-laptop-code fa-3x mb-3"></i>
+                    <h4>Front-End Development</h4>
+                    <p>
+                        I specialize in creating visually stunning, responsive, and interactive websites using HTML, CSS, JavaScript, and frameworks like React or Vue.js. Every website I build is optimized for performance and accessibility.
+                    </p>
+                </div>
+            </div>
+            <!-- Back-End Development -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="service-box">
+                    <i class="fa fa-server fa-3x mb-3"></i>
+                    <h4>Back-End Development</h4>
+                    <p>
+                        With a strong background in Python, I develop powerful back-end solutions using frameworks like Django and Flask. From database management to API integration, I ensure your website runs smoothly and securely.
+                    </p>
+                </div>
+            </div>
+            <!-- Full-Stack Web Development -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="service-box">
+                    <i class="fa fa-code fa-3x mb-3"></i>
+                    <h4>Full-Stack Web Development</h4>
+                    <p>
+                        I provide end-to-end web development, integrating front-end and back-end solutions to create a seamless user experience. Whether you need a simple website or a complex web application, I’ll manage the entire development process.
+                    </p>
+                </div>
+            </div>
+            <!-- Website Maintenance & Support -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="service-box">
+                    <i class="fa fa-tools fa-3x mb-3"></i>
+                    <h4>Website Maintenance & Support</h4>
+                    <p>
+                        Ongoing support is essential for keeping websites up-to-date and secure. I offer maintenance services to ensure your website remains fully functional and up-to-date with the latest technologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <h2 class="section-title text-center">My Work</h2>
+        <p class="text-center">Take a closer look at some of the projects I’ve developed. Each project demonstrates my ability to deliver exceptional results across a variety of industries and requirements.</p>
+
+        <div class="row">
+            <!-- Project 1: E-commerce Website -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="path/to/your/image1.jpg" alt="E-commerce Website" class="img-fluid mb-4" />
+                    <h3>E-commerce Website</h3>
+                    <p>A sleek, responsive e-commerce platform designed for a fashion retailer. Features include a dynamic product catalog, user authentication, and an integrated payment gateway.</p>
+                    <h5>Technologies Used:</h5>
+                    <ul>
+                        <li>Front-End: React, CSS3</li>
+                        <li>Back-End: Node.js, Express</li>
+                        <li>Database: MongoDB</li>
+                    </ul>
+                    <h5>Challenges & Solutions:</h5>
+                    <p>The client needed real-time inventory management. I implemented a system that syncs stock levels between the website and the physical store, ensuring accuracy.</p>
+                    <h5>Result:</h5>
+                    <p>Improved sales by 30% within the first three months of launch.</p>
+                </div>
+            </div>
+
+            <!-- Project 2: Blogging Platform -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="path/to/your/image2.jpg" alt="Blogging Platform" class="img-fluid mb-4" />
+                    <h3>Blogging Platform</h3>
+                    <p>Developed a fully customizable blogging platform with features like user profiles, comments, and analytics.</p>
+                    <h5>Technologies Used:</h5>
+                    <ul>
+                        <li>Front-End: Vue.js, Bootstrap</li>
+                        <li>Back-End: Python (Flask)</li>
+                        <li>Database: PostgreSQL</li>
+                    </ul>
+                    <h5>Challenges & Solutions:</h5>
+                    <p>The biggest challenge was optimizing the back-end to handle a high volume of users. I implemented caching and optimized database queries to improve performance.</p>
+                    <h5>Result:</h5>
+                    <p>The platform can now handle up to 50,000 users simultaneously with zero downtime.</p>
+                </div>
+            </div>
+
+            <!-- Project 3: Business Website -->
+            <div class="col-md-4">
+                <div class="project-card">
+                    <img src="path/to/your/image3.jpg" alt="Business Website" class="img-fluid mb-4" />
+                    <h3>Business Website</h3>
+                    <p>Created a professional business website for a local consultancy firm, featuring a service showcase, client testimonials, and a contact form.</p>
+                    <h5>Technologies Used:</h5>
+                    <ul>
+                        <li>Front-End: HTML5, CSS3, JavaScript</li>
+                        <li>Back-End: PHP, MySQL</li>
+                    </ul>
+                    <h5>Challenges & Solutions:</h5>
+                    <p>The client wanted a feature to book consultations directly from the website. I integrated a scheduling tool that syncs with their calendar and sends automated reminders.</p>
+                    <h5>Result:</h5>
+                    <p>The website increased consultation bookings by 40% in just two months.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="testimonials">
+    <div class="container">
+        <h1>What My Clients Say</h1>
+        <p class="section-intro">
+            "I take pride in delivering high-quality work that exceeds expectations. Here’s what some of my satisfied clients have to say about their experiences working with me:"
+        </p>
+        <div class="testimonials-wrapper">
+            <div class="testimonial">
+                <img src="images/testimonials.jpg" alt="Sarah Ahmed" class="testimonial-image">
+                <h4>Sarah Ahmed</h4>
+                <p>"I hired Faiq to redesign our company’s e-commerce website, and he did an outstanding job! The website is now faster, more user-friendly, and visually appealing. Faiq communicated clearly throughout the process, and his attention to detail ensured every aspect of the project was perfect. I highly recommend his services!"</p>
+            </div>
+            <div class="testimonial">
+                <img src="images/john.jpg" alt="John Smith" class="testimonial-image">
+                <h4>John Smith</h4>
+                <p>"Faiq built a custom web application for our startup, and I couldn’t be happier with the results. He not only understood our requirements but also suggested innovative features we hadn’t thought of. The final product exceeded our expectations, and the support he provided after the launch was exceptional."</p>
+            </div>
+            <div class="testimonial">
+                <img src="images/ayesha.jpg" alt="Ayesha Khan" class="testimonial-image">
+                <h4>Ayesha Khan</h4>
+                <p>"Working with Faiq was a game-changer for my blog website. He optimized the back-end to handle more traffic and revamped the front-end with a modern, responsive design. His professionalism and ability to meet tight deadlines were impressive. I’d definitely work with him again!"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <!-- Process Section -->
+<section id="process" class="process-section">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>How I Work</h2>
+            <p>I believe in clear communication, collaboration, and transparency throughout the development process. Here’s how I approach each project:</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="process-box">
+                    <h3>Discovery & Planning</h3>
+                    <p>We start with a deep dive into your project requirements, goals, and target audience. I’ll work with you to create a detailed project plan that outlines milestones, timelines, and deliverables.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-box">
+                    <h3>Design & Prototyping</h3>
+                    <p>I’ll develop wireframes and prototypes to visualize the project’s structure and flow. This step ensures the user experience aligns with your vision and sets a strong foundation for development.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-box">
+                    <h3>Development</h3>
+                    <p>Using modern technologies like HTML, CSS, JavaScript, and Python-based frameworks, I’ll begin coding the front-end and back-end. Every detail will be optimized for responsiveness, security, and functionality to ensure a seamless experience for your users.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-box">
+                    <h3>Testing & Launch</h3>
+                    <p>Before launching, I conduct rigorous testing across various devices and browsers to ensure your website performs flawlessly. Once everything is polished, we’ll make it live, ensuring a smooth transition into the real world.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-box">
+                    <h3>Ongoing Support</h3>
+                    <p>I provide post-launch support to monitor your website’s performance, address any issues that arise, and implement future updates to keep your site running smoothly and securely.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  
+
+    <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-heading text-center">Let's Build Something Amazing Together!</h2>
+        <p class="text-center">I’m always excited to collaborate on new projects. Whether you have a question about web development, need a quote for a new project, or just want to chat about technology, feel free to reach out. I’ll get back to you as soon as possible!</p>
+        
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3 class="form-heading text-center">Contact Form</h3>
+            <p class="text-center">Please fill out the form below, and I’ll get back to you promptly.</p>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Your Message Here" rows="4" required></textarea>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <!-- Left Side Content (Quick Links) -->
+        <div class="left-side">
+            <h4>Quick Links</h4>
+            <ul class="list-unstyled">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Side Content (Contact, Social Links) -->
+        <div class="right-side">
+            <h4>Contact & Follow Me</h4> <!-- Heading for the contact section -->
+            <ul class="list-unstyled">
+                <li><a href="mailto:faiq84016@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+                <li><a href="tel:+1234567890"><i class="fas fa-phone-alt"></i> Phone</a></li>
+                <li><a href="[Your LinkedIn Profile Link]" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="[Your GitHub Profile Link]" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="[Your Twitter Profile Link]" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="[Your Facebook Profile Link]" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright Information -->
+    <div class="copyright">
+        <p>© 2024 Faiq Hanif. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+      
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll to Top Function -->
+    <script>
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarNav');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+
+        if (navbarCollapse.classList.contains('show')) {
+            navbarToggler.click(); // Collapse the navbar on link click
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
